@@ -1,0 +1,48 @@
+{
+    "name": "Federal Communications Commission",
+    "description": "<p>The Federal Communications Commission (FCC) is an independent agency of the United States government, created by Congressional statute (see 47 U.S.C. &sect; 151 and 47 U.S.C. &sect; 154) to regulate interstate and international communications by radio, television, wire, satellite, and cable in all 50 states, the District of Columbia and U.S. territories. The FCC works towards six goals in the areas of broadband, competition, the spectrum, the media, public safety and homeland security. The Commission is also in the process of modernizing itself.<\/p>",
+    "image": "http:\/\/kinlane-productions.s3.amazonaws.com\/api-evangelist-site\/company\/logos\/US-FCC-Seal.svg.png",
+    "tags": [
+        "api provider",
+        "have api"
+    ],
+    "created": "2019-12-19",
+    "modified": "2019-12-19",
+    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/federal-communications-commission\/master\/apis.json",
+    "specificationVersion": "0.14",
+    "apis": [
+        {
+            "name": "Federal Communications Commission",
+            "description": null,
+            "image": "http:\/\/kinlane-productions.s3.amazonaws.com\/api-evangelist-site\/company\/logos\/US-FCC-Seal.svg.png",
+            "humanURL": "http:\/\/www.fcc.gov",
+            "baseURL": "",
+            "tags": [],
+            "properties": [
+                {
+                    "type": "x-openapi",
+                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/1forge\/master\/federal-communications-commission-openapi.json"
+                },
+                {
+                    "type": "x-postman-collecction",
+                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/1forge\/master\/federal-communications-commission-postman-collection.json"
+                }
+            ]
+        }
+    ],
+    "include": [],
+    "x-common": [
+        {
+            "type": "Developers",
+            "url": "http:\/\/www.fcc.gov\/developers"
+        },
+        {
+            "type": "Website",
+            "url": "http:\/\/www.fcc.gov"
+        },
+        {
+            "type": "Wikipedia",
+            "url": "http:\/\/en.wikipedia.org\/wiki\/Federal_Communications_Commission"
+        }
+    ]
+}
