@@ -1,0 +1,19 @@
+name: FCC ECFS API Rules
+description: Operational and design rules for the FCC ECFS public API.
+api: ecfs
+rules:
+  - id: api-key-required
+    description: All ECFS public API requests require an api.data.gov api_key query parameter.
+    severity: error
+  - id: pagination-limit
+    description: The limit parameter caps responses; use offset for stable pagination.
+    severity: warning
+  - id: proceeding-filter
+    description: Filter by proceeding using proceedings.name (docket number).
+    severity: info
+  - id: sort-direction
+    description: Sort uses the form field,DIRECTION (e.g. date_disseminated,DESC).
+    severity: info
+  - id: rate-limits
+    description: Respect api.data.gov hourly request limits; cache where possible.
+    severity: warning

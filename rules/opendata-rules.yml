@@ -1,0 +1,16 @@
+name: FCC Open Data (Socrata) Rules
+description: Operational rules for FCC Open Data SODA endpoints.
+api: opendata
+rules:
+  - id: soql-syntax
+    description: Use SoQL ($select, $where, $order, $limit, $offset, $q) for filtering and projection.
+    severity: info
+  - id: limit-cap
+    description: $limit is capped at 50000 per request; iterate with $offset for larger pulls.
+    severity: warning
+  - id: app-token
+    description: An app token is recommended for authenticated, higher rate-limited access.
+    severity: warning
+  - id: dataset-id-stability
+    description: Dataset four-by-four IDs (e.g. wgq8-eb5c) are stable; prefer them over names.
+    severity: info
