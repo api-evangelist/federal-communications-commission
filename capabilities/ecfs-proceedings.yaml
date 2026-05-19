@@ -1,0 +1,97 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: FCC ECFS API — Proceedings
+  description: 'FCC ECFS API — Proceedings. 1 operations. Lead operation: Search ECFS proceedings. Self-contained Naftiko
+    capability covering one Federal Communications Commission business surface.'
+  tags:
+  - Federal Communications Commission
+  - Proceedings
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    FEDERAL_COMMUNICATIONS_COMMISSION_API_KEY: FEDERAL_COMMUNICATIONS_COMMISSION_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: ecfs-proceedings
+    baseUri: https://publicapi.fcc.gov/ecfs
+    description: FCC ECFS API — Proceedings business capability. Self-contained, no shared references.
+    resources:
+    - name: proceedings
+      path: /proceedings
+      operations:
+      - name: listproceedings
+        method: GET
+        description: Search ECFS proceedings
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: api_key
+          in: query
+          type: string
+          required: true
+        - name: limit
+          in: query
+          type: integer
+        - name: offset
+          in: query
+          type: integer
+        - name: name
+          in: query
+          type: string
+          description: Proceeding (docket) number filter.
+    authentication:
+      type: apikey
+      key: api_key
+      value: '{{env.FEDERAL_COMMUNICATIONS_COMMISSION_API_KEY}}'
+      placement: query
+  exposes:
+  - type: rest
+    namespace: ecfs-proceedings-rest
+    port: 8080
+    description: REST adapter for FCC ECFS API — Proceedings. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/proceedings
+      name: proceedings
+      description: REST surface for proceedings.
+      operations:
+      - method: GET
+        name: listproceedings
+        description: Search ECFS proceedings
+        call: ecfs-proceedings.listproceedings
+        with:
+          api_key: rest.api_key
+          limit: rest.limit
+          offset: rest.offset
+          name: rest.name
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: ecfs-proceedings-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for FCC ECFS API — Proceedings. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: search-ecfs-proceedings
+      description: Search ECFS proceedings
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: ecfs-proceedings.listproceedings
+      with:
+        api_key: tools.api_key
+        limit: tools.limit
+        offset: tools.offset
+        name: tools.name
+      outputParameters:
+      - type: object
+        mapping: $.

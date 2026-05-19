@@ -1,0 +1,102 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: FCC Open Data API — Pirate Radio
+  description: 'FCC Open Data API — Pirate Radio. 1 operations. Lead operation: Pirate Radio Broadcasting Database. Self-contained
+    Naftiko capability covering one Federal Communications Commission business surface.'
+  tags:
+  - Federal Communications Commission
+  - Pirate Radio
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    FEDERAL_COMMUNICATIONS_COMMISSION_API_KEY: FEDERAL_COMMUNICATIONS_COMMISSION_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: opendata-pirate-radio
+    baseUri: https://opendata.fcc.gov
+    description: FCC Open Data API — Pirate Radio business capability. Self-contained, no shared references.
+    resources:
+    - name: resource-wgq8-eb5c.json
+      path: /resource/wgq8-eb5c.json
+      operations:
+      - name: listpirateradio
+        method: GET
+        description: Pirate Radio Broadcasting Database
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: $limit
+          in: query
+          type: integer
+        - name: $offset
+          in: query
+          type: integer
+        - name: $where
+          in: query
+          type: string
+          description: SoQL filter expression.
+        - name: $select
+          in: query
+          type: string
+        - name: $order
+          in: query
+          type: string
+        - name: $q
+          in: query
+          type: string
+          description: Full-text search.
+  exposes:
+  - type: rest
+    namespace: opendata-pirate-radio-rest
+    port: 8080
+    description: REST adapter for FCC Open Data API — Pirate Radio. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/resource/wgq8-eb5c-json
+      name: resource-wgq8-eb5c-json
+      description: REST surface for resource-wgq8-eb5c.json.
+      operations:
+      - method: GET
+        name: listpirateradio
+        description: Pirate Radio Broadcasting Database
+        call: opendata-pirate-radio.listpirateradio
+        with:
+          $limit: rest.$limit
+          $offset: rest.$offset
+          $where: rest.$where
+          $select: rest.$select
+          $order: rest.$order
+          $q: rest.$q
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: opendata-pirate-radio-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for FCC Open Data API — Pirate Radio. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: pirate-radio-broadcasting-database
+      description: Pirate Radio Broadcasting Database
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: opendata-pirate-radio.listpirateradio
+      with:
+        $limit: tools.$limit
+        $offset: tools.$offset
+        $where: tools.$where
+        $select: tools.$select
+        $order: tools.$order
+        $q: tools.$q
+      outputParameters:
+      - type: object
+        mapping: $.

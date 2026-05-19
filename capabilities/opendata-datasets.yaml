@@ -1,0 +1,80 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: FCC Open Data API — Datasets
+  description: 'FCC Open Data API — Datasets. 1 operations. Lead operation: List datasets in the FCC open data catalog. Self-contained
+    Naftiko capability covering one Federal Communications Commission business surface.'
+  tags:
+  - Federal Communications Commission
+  - Datasets
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    FEDERAL_COMMUNICATIONS_COMMISSION_API_KEY: FEDERAL_COMMUNICATIONS_COMMISSION_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: opendata-datasets
+    baseUri: https://opendata.fcc.gov
+    description: FCC Open Data API — Datasets business capability. Self-contained, no shared references.
+    resources:
+    - name: api-views.json
+      path: /api/views.json
+      operations:
+      - name: listviews
+        method: GET
+        description: List datasets in the FCC open data catalog
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: limit
+          in: query
+          type: integer
+        - name: page
+          in: query
+          type: integer
+  exposes:
+  - type: rest
+    namespace: opendata-datasets-rest
+    port: 8080
+    description: REST adapter for FCC Open Data API — Datasets. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/api/views-json
+      name: api-views-json
+      description: REST surface for api-views.json.
+      operations:
+      - method: GET
+        name: listviews
+        description: List datasets in the FCC open data catalog
+        call: opendata-datasets.listviews
+        with:
+          limit: rest.limit
+          page: rest.page
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: opendata-datasets-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for FCC Open Data API — Datasets. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: list-datasets-fcc-open-data
+      description: List datasets in the FCC open data catalog
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: opendata-datasets.listviews
+      with:
+        limit: tools.limit
+        page: tools.page
+      outputParameters:
+      - type: object
+        mapping: $.

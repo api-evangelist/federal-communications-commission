@@ -1,0 +1,104 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: FCC ECFS API — Filings
+  description: 'FCC ECFS API — Filings. 1 operations. Lead operation: Search ECFS filings. Self-contained Naftiko capability
+    covering one Federal Communications Commission business surface.'
+  tags:
+  - Federal Communications Commission
+  - Filings
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    FEDERAL_COMMUNICATIONS_COMMISSION_API_KEY: FEDERAL_COMMUNICATIONS_COMMISSION_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: ecfs-filings
+    baseUri: https://publicapi.fcc.gov/ecfs
+    description: FCC ECFS API — Filings business capability. Self-contained, no shared references.
+    resources:
+    - name: filings
+      path: /filings
+      operations:
+      - name: listfilings
+        method: GET
+        description: Search ECFS filings
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: api_key
+          in: query
+          type: string
+          description: api.data.gov API key.
+          required: true
+        - name: limit
+          in: query
+          type: integer
+        - name: offset
+          in: query
+          type: integer
+        - name: proceedings.name
+          in: query
+          type: string
+          description: Proceeding (docket) number filter.
+        - name: sort
+          in: query
+          type: string
+          description: Field name and direction (e.g. date_disseminated,DESC).
+    authentication:
+      type: apikey
+      key: api_key
+      value: '{{env.FEDERAL_COMMUNICATIONS_COMMISSION_API_KEY}}'
+      placement: query
+  exposes:
+  - type: rest
+    namespace: ecfs-filings-rest
+    port: 8080
+    description: REST adapter for FCC ECFS API — Filings. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/filings
+      name: filings
+      description: REST surface for filings.
+      operations:
+      - method: GET
+        name: listfilings
+        description: Search ECFS filings
+        call: ecfs-filings.listfilings
+        with:
+          api_key: rest.api_key
+          limit: rest.limit
+          offset: rest.offset
+          proceedings.name: rest.proceedings.name
+          sort: rest.sort
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: ecfs-filings-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for FCC ECFS API — Filings. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: search-ecfs-filings
+      description: Search ECFS filings
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: ecfs-filings.listfilings
+      with:
+        api_key: tools.api_key
+        limit: tools.limit
+        offset: tools.offset
+        proceedings.name: tools.proceedings.name
+        sort: tools.sort
+      outputParameters:
+      - type: object
+        mapping: $.
