@@ -1,0 +1,94 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "FCC Open Data API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Datasets",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List datasets in the FCC open data catalog",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://opendata.fcc.gov/api/views.json",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns a list of datasets and views available on the FCC Open Data portal."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Pirate Radio",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Pirate Radio Broadcasting Database",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://opendata.fcc.gov/resource/wgq8-eb5c.json",
+            "params": [
+              {
+                "name": "$limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "$offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "$where",
+                "value": "",
+                "type": "query",
+                "description": "SoQL filter expression."
+              },
+              {
+                "name": "$select",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "$order",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "$q",
+                "value": "",
+                "type": "query",
+                "description": "Full-text search."
+              }
+            ]
+          },
+          "docs": "Returns entries from the Pirate Radio Broadcasting Database, identifying entities subject to enforcement actions for unlicensed radio broadcasting under section 511(g) of the PIRATE Act."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

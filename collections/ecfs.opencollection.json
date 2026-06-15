@@ -1,0 +1,109 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "FCC ECFS API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "api_key",
+      "value": "{{api_key}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Filings",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Search ECFS filings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://publicapi.fcc.gov/ecfs/filings",
+            "params": [
+              {
+                "name": "api_key",
+                "value": "",
+                "type": "query",
+                "description": "api.data.gov API key."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "proceedings.name",
+                "value": "",
+                "type": "query",
+                "description": "Proceeding (docket) number filter."
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Field name and direction (e.g. date_disseminated,DESC)."
+              }
+            ]
+          },
+          "docs": "Returns a list of filings submitted to the FCC ECFS system."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Proceedings",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Search ECFS proceedings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://publicapi.fcc.gov/ecfs/proceedings",
+            "params": [
+              {
+                "name": "api_key",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query",
+                "description": "Proceeding (docket) number filter."
+              }
+            ]
+          },
+          "docs": "Returns a list of proceedings (dockets) registered in the FCC ECFS system."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

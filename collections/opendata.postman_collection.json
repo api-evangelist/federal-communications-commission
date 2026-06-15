@@ -1,0 +1,253 @@
+{
+  "item": [
+    {
+      "id": "16634001-01eb-4db0-9656-15f8524c4bd1",
+      "name": "Datasets",
+      "description": {
+        "content": "Dataset catalog and resources",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "41d93770-8e13-4854-9510-7acb171a6563",
+          "name": "List datasets in the FCC open data catalog",
+          "request": {
+            "name": "List datasets in the FCC open data catalog",
+            "description": {
+              "content": "Returns a list of datasets and views available on the FCC Open Data portal.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "views.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "200"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2fb3f2b5-be90-453e-a5d9-1585f787ccae",
+              "name": "List of datasets",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "views.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "200"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"description\": \"string\",\n    \"category\": \"string\",\n    \"createdAt\": 6270,\n    \"rowsUpdatedAt\": 3008\n  },\n  {\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"description\": \"string\",\n    \"category\": \"string\",\n    \"createdAt\": 4151,\n    \"rowsUpdatedAt\": 6854\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "2ac886bb-f1f7-4bdc-baa1-e30e357e5280",
+      "name": "Pirate Radio",
+      "description": {
+        "content": "Pirate Radio Broadcasting Database",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "179bd1c1-2dab-4495-9370-e0e6ee0c7afe",
+          "name": "Pirate Radio Broadcasting Database",
+          "request": {
+            "name": "Pirate Radio Broadcasting Database",
+            "description": {
+              "content": "Returns entries from the Pirate Radio Broadcasting Database, identifying entities subject to enforcement actions for unlicensed radio broadcasting under section 511(g) of the PIRATE Act.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "resource",
+                "wgq8-eb5c.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "$limit",
+                  "value": "1000"
+                },
+                {
+                  "disabled": false,
+                  "key": "$offset",
+                  "value": "0"
+                },
+                {
+                  "disabled": false,
+                  "key": "$where",
+                  "value": "<string>",
+                  "description": "SoQL filter expression."
+                },
+                {
+                  "disabled": false,
+                  "key": "$select",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "$order",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "$q",
+                  "value": "<string>",
+                  "description": "Full-text search."
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7fcbe6e0-3145-4ef8-92df-22be6a5d9ce4",
+              "name": "Pirate radio records",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "resource",
+                    "wgq8-eb5c.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$limit",
+                      "value": "1000"
+                    },
+                    {
+                      "key": "$offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "$where",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$order",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$q",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://opendata.fcc.gov",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "de8c2bd4-4596-4c37-a112-5d07a32e8589",
+    "name": "FCC Open Data API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The FCC Open Data Portal exposes datasets via the Socrata Open Data API (SODA), including the Pirate Radio Broadcasting Database, Fixed Broadband Deployment data, and consumer complaint summaries.\n\nContact Support:\n Name: FCC Open Data",
+      "type": "text/plain"
+    }
+  }
+}

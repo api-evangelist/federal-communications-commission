@@ -1,0 +1,286 @@
+{
+  "item": [
+    {
+      "id": "4d8dd8e2-7bc4-4093-8af2-95f37e54c91c",
+      "name": "Filings",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d3358a56-81a7-421f-adca-f06ed56bdbbd",
+          "name": "Search ECFS filings",
+          "request": {
+            "name": "Search ECFS filings",
+            "description": {
+              "content": "Returns a list of filings submitted to the FCC ECFS system.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "filings"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api_key",
+                  "value": "<string>",
+                  "description": "(Required) api.data.gov API key."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "25"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0"
+                },
+                {
+                  "disabled": false,
+                  "key": "proceedings.name",
+                  "value": "<string>",
+                  "description": "Proceeding (docket) number filter."
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "Field name and direction (e.g. date_disseminated,DESC)."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3ea753ac-3795-41bc-96cb-9995e23d0c44",
+              "name": "Filings response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "filings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "25"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "proceedings.name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"filing\": [\n    {\n      \"id_submission\": \"string\",\n      \"date_received\": \"1978-08-14T09:24:10.309Z\",\n      \"date_submission\": \"1971-08-30T18:48:13.558Z\",\n      \"date_disseminated\": \"1952-07-16T23:17:59.089Z\",\n      \"date_last_modified\": \"1975-08-15T17:08:12.824Z\",\n      \"delegated_authority_number\": \"string\",\n      \"bureaus\": [\n        {\n          \"code\": \"string\",\n          \"name\": \"string\"\n        },\n        {\n          \"code\": \"string\",\n          \"name\": \"string\"\n        }\n      ],\n      \"proceedings\": [\n        {\n          \"name\": \"string\",\n          \"description\": \"string\",\n          \"bureau_code\": \"string\",\n          \"bureau_name\": \"string\"\n        },\n        {\n          \"name\": \"string\",\n          \"description\": \"string\",\n          \"bureau_code\": \"string\",\n          \"bureau_name\": \"string\"\n        }\n      ],\n      \"documents\": [\n        {\n          \"filename\": \"string\",\n          \"src\": \"string\",\n          \"description\": \"string\"\n        },\n        {\n          \"filename\": \"string\",\n          \"src\": \"string\",\n          \"description\": \"string\"\n        }\n      ],\n      \"filers\": [\n        {\n          \"name\": \"string\"\n        },\n        {\n          \"name\": \"string\"\n        }\n      ],\n      \"submissiontype\": {\n        \"id\": 1429,\n        \"type\": \"string\",\n        \"short\": \"string\",\n        \"description\": \"string\"\n      },\n      \"filingstatus\": {\n        \"id\": 7639,\n        \"description\": \"string\"\n      }\n    },\n    {\n      \"id_submission\": \"string\",\n      \"date_received\": \"1967-11-06T22:25:02.238Z\",\n      \"date_submission\": \"1960-04-26T05:42:09.799Z\",\n      \"date_disseminated\": \"1990-03-20T03:59:58.904Z\",\n      \"date_last_modified\": \"1958-07-24T21:29:06.805Z\",\n      \"delegated_authority_number\": \"string\",\n      \"bureaus\": [\n        {\n          \"code\": \"string\",\n          \"name\": \"string\"\n        },\n        {\n          \"code\": \"string\",\n          \"name\": \"string\"\n        }\n      ],\n      \"proceedings\": [\n        {\n          \"name\": \"string\",\n          \"description\": \"string\",\n          \"bureau_code\": \"string\",\n          \"bureau_name\": \"string\"\n        },\n        {\n          \"name\": \"string\",\n          \"description\": \"string\",\n          \"bureau_code\": \"string\",\n          \"bureau_name\": \"string\"\n        }\n      ],\n      \"documents\": [\n        {\n          \"filename\": \"string\",\n          \"src\": \"string\",\n          \"description\": \"string\"\n        },\n        {\n          \"filename\": \"string\",\n          \"src\": \"string\",\n          \"description\": \"string\"\n        }\n      ],\n      \"filers\": [\n        {\n          \"name\": \"string\"\n        },\n        {\n          \"name\": \"string\"\n        }\n      ],\n      \"submissiontype\": {\n        \"id\": 2303,\n        \"type\": \"string\",\n        \"short\": \"string\",\n        \"description\": \"string\"\n      },\n      \"filingstatus\": {\n        \"id\": 3604,\n        \"description\": \"string\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "44743e82-5ec4-487f-9634-9372c10b0d57",
+      "name": "Proceedings",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "2ed6fa44-83aa-4ab6-abaa-a74ed2f61551",
+          "name": "Search ECFS proceedings",
+          "request": {
+            "name": "Search ECFS proceedings",
+            "description": {
+              "content": "Returns a list of proceedings (dockets) registered in the FCC ECFS system.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "proceedings"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api_key",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "25"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0"
+                },
+                {
+                  "disabled": false,
+                  "key": "name",
+                  "value": "<string>",
+                  "description": "Proceeding (docket) number filter."
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b657248b-6e2d-4782-8fd6-1e5023448637",
+              "name": "Proceedings response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "proceedings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "25"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://publicapi.fcc.gov/ecfs",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "api_key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "13b939f0-4312-429a-a270-d199d4c39a8c",
+    "name": "FCC ECFS API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The FCC Electronic Comment Filing System (ECFS) public API provides programmatic access to filings, proceedings, and submissions made to the Federal Communications Commission.\n\nContact Support:\n Name: FCC Developer",
+      "type": "text/plain"
+    }
+  }
+}
