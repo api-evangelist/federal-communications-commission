@@ -58,6 +58,10 @@ apis:
         url: >-
           https://raw.githubusercontent.com/api-evangelist/federal-communications-commission/refs/heads/main/rules/opendata-rules.yml
 common:
+  - type: DomainSecurity
+    url: security/federal-communications-commission-domain-security.yml
+  - type: Authentication
+    url: authentication/federal-communications-commission-authentication.yml
   - type: GitHubOrganization
     url: https://github.com/fcc
   - type: LinkedIn

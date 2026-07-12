@@ -1,0 +1,16 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/ecfs.yml
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - query
+schemes:
+- name: apiKey
+  type: apiKey
+  in: query
+  parameter: api_key
+  description: api.data.gov API key passed as a query parameter.
+  sources:
+  - openapi/ecfs.yml
