@@ -1,0 +1,54 @@
+generated: '2026-07-15'
+method: generated
+source: openapi/ecfs.yml, openapi/opendata.yml
+description: Recommended x-agentic-access execution contracts, classified heuristically from
+  the OpenAPI. A governance starting point for exposing this API to AI agents — review and bind
+  audience per deployment. See research/curity/agentic-governance/.
+summary:
+  operations: 4
+  by_action_class:
+    connected: 4
+  by_consequence:
+    read: 4
+  human_in_the_loop_required: 0
+operations:
+- path: /filings
+  method: get
+  operationId: listFilings
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /proceedings
+  method: get
+  operationId: listProceedings
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/views.json
+  method: get
+  operationId: listViews
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /resource/wgq8-eb5c.json
+  method: get
+  operationId: listPirateRadio
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none

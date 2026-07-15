@@ -58,6 +58,8 @@ apis:
         url: >-
           https://raw.githubusercontent.com/api-evangelist/federal-communications-commission/refs/heads/main/rules/opendata-rules.yml
 common:
+  - type: AgenticAccess
+    url: agentic-access/federal-communications-commission-agentic-access.yml
   - type: DomainSecurity
     url: security/federal-communications-commission-domain-security.yml
   - type: Authentication
