@@ -1,0 +1,67 @@
+openapi: 3.0.3
+info:
+  title: FCC ECFS Datasets API
+  description: The FCC Electronic Comment Filing System (ECFS) public API provides programmatic access to filings, proceedings, and submissions made to the Federal Communications Commission.
+  version: '1.0'
+  contact:
+    name: FCC Developer
+    url: https://www.fcc.gov/reports-research/developers
+servers:
+- url: https://publicapi.fcc.gov/ecfs
+  description: ECFS public API
+security:
+- apiKey: []
+tags:
+- name: Datasets
+  description: Dataset catalog and resources
+paths:
+  /api/views.json:
+    get:
+      operationId: listViews
+      summary: List datasets in the FCC open data catalog
+      description: Returns a list of datasets and views available on the FCC Open Data portal.
+      tags:
+      - Datasets
+      parameters:
+      - name: limit
+        in: query
+        schema:
+          type: integer
+          default: 200
+      - name: page
+        in: query
+        schema:
+          type: integer
+          default: 1
+      responses:
+        '200':
+          description: List of datasets
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/View'
+components:
+  schemas:
+    View:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        category:
+          type: string
+        createdAt:
+          type: integer
+        rowsUpdatedAt:
+          type: integer
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      in: query
+      name: api_key
+      description: api.data.gov API key passed as a query parameter.
