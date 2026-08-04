@@ -1,0 +1,180 @@
+openapi: 3.0.3
+info:
+  title: FCC ECFS API
+  description: >-
+    The FCC Electronic Comment Filing System (ECFS) public API provides
+    programmatic access to filings, proceedings, and submissions made to the
+    Federal Communications Commission.
+  version: '1.0'
+  contact:
+    name: FCC Developer
+    url: https://www.fcc.gov/reports-research/developers
+servers:
+  - url: https://publicapi.fcc.gov/ecfs
+    description: ECFS public API
+security:
+  - apiKey: []
+paths:
+  /filings:
+    get:
+      operationId: listFilings
+      summary: Search ECFS filings
+      description: Returns a list of filings submitted to the FCC ECFS system.
+      tags:
+        - Filings
+      parameters:
+        - name: api_key
+          in: query
+          required: true
+          schema:
+            type: string
+          description: api.data.gov API key.
+        - name: limit
+          in: query
+          schema:
+            type: integer
+            default: 25
+            maximum: 100
+        - name: offset
+          in: query
+          schema:
+            type: integer
+            default: 0
+        - name: proceedings.name
+          in: query
+          schema:
+            type: string
+          description: Proceeding (docket) number filter.
+        - name: sort
+          in: query
+          schema:
+            type: string
+          description: Field name and direction (e.g. date_disseminated,DESC).
+      responses:
+        '200':
+          description: Filings response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  filing:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Filing'
+  /proceedings:
+    get:
+      operationId: listProceedings
+      summary: Search ECFS proceedings
+      description: Returns a list of proceedings (dockets) registered in the FCC ECFS system.
+      tags:
+        - Proceedings
+      parameters:
+        - name: api_key
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: limit
+          in: query
+          schema:
+            type: integer
+            default: 25
+        - name: offset
+          in: query
+          schema:
+            type: integer
+            default: 0
+        - name: name
+          in: query
+          schema:
+            type: string
+          description: Proceeding (docket) number filter.
+      responses:
+        '200':
+          description: Proceedings response
+components:
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      in: query
+      name: api_key
+      description: api.data.gov API key passed as a query parameter.
+  schemas:
+    Filing:
+      type: object
+      properties:
+        id_submission:
+          type: string
+        date_received:
+          type: string
+          format: date-time
+        date_submission:
+          type: string
+          format: date-time
+        date_disseminated:
+          type: string
+          format: date-time
+        date_last_modified:
+          type: string
+          format: date-time
+        delegated_authority_number:
+          type: string
+        bureaus:
+          type: array
+          items:
+            type: object
+            properties:
+              code:
+                type: string
+              name:
+                type: string
+        proceedings:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              description:
+                type: string
+              bureau_code:
+                type: string
+              bureau_name:
+                type: string
+        documents:
+          type: array
+          items:
+            type: object
+            properties:
+              filename:
+                type: string
+              src:
+                type: string
+              description:
+                type: string
+        filers:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+        submissiontype:
+          type: object
+          properties:
+            id:
+              type: integer
+            type:
+              type: string
+            short:
+              type: string
+            description:
+              type: string
+        filingstatus:
+          type: object
+          properties:
+            id:
+              type: integer
+            description:
+              type: string

@@ -1,0 +1,107 @@
+openapi: 3.0.3
+info:
+  title: FCC Open Data API
+  description: >-
+    The FCC Open Data Portal exposes datasets via the Socrata Open Data API
+    (SODA), including the Pirate Radio Broadcasting Database, Fixed Broadband
+    Deployment data, and consumer complaint summaries.
+  version: '1.0'
+  contact:
+    name: FCC Open Data
+    url: https://opendata.fcc.gov/
+servers:
+  - url: https://opendata.fcc.gov
+    description: FCC Open Data portal
+tags:
+  - name: Datasets
+    description: Dataset catalog and resources
+  - name: Pirate Radio
+    description: Pirate Radio Broadcasting Database
+paths:
+  /api/views.json:
+    get:
+      operationId: listViews
+      summary: List datasets in the FCC open data catalog
+      description: Returns a list of datasets and views available on the FCC Open Data portal.
+      tags:
+        - Datasets
+      parameters:
+        - name: limit
+          in: query
+          schema:
+            type: integer
+            default: 200
+        - name: page
+          in: query
+          schema:
+            type: integer
+            default: 1
+      responses:
+        '200':
+          description: List of datasets
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/View'
+  /resource/wgq8-eb5c.json:
+    get:
+      operationId: listPirateRadio
+      summary: Pirate Radio Broadcasting Database
+      description: >-
+        Returns entries from the Pirate Radio Broadcasting Database,
+        identifying entities subject to enforcement actions for unlicensed
+        radio broadcasting under section 511(g) of the PIRATE Act.
+      tags:
+        - Pirate Radio
+      parameters:
+        - name: $limit
+          in: query
+          schema:
+            type: integer
+            default: 1000
+            maximum: 50000
+        - name: $offset
+          in: query
+          schema:
+            type: integer
+            default: 0
+        - name: $where
+          in: query
+          schema:
+            type: string
+          description: SoQL filter expression.
+        - name: $select
+          in: query
+          schema:
+            type: string
+        - name: $order
+          in: query
+          schema:
+            type: string
+        - name: $q
+          in: query
+          schema:
+            type: string
+          description: Full-text search.
+      responses:
+        '200':
+          description: Pirate radio records
+components:
+  schemas:
+    View:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        category:
+          type: string
+        createdAt:
+          type: integer
+        rowsUpdatedAt:
+          type: integer

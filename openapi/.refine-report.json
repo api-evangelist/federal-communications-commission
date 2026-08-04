@@ -1,0 +1,20 @@
+{
+  "provider": "federal-communications-commission",
+  "sources": [
+    "federal-communications-commission-datasets-api-openapi.yml",
+    "federal-communications-commission-filings-api-openapi.yml",
+    "federal-communications-commission-pirate-radio-api-openapi.yml",
+    "federal-communications-commission-proceedings-api-openapi.yml"
+  ],
+  "outputs": [
+    "federal-communications-commission-datasets-api-openapi.yml",
+    "federal-communications-commission-filings-api-openapi.yml",
+    "federal-communications-commission-pirate-radio-api-openapi.yml",
+    "federal-communications-commission-proceedings-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
