@@ -1,0 +1,171 @@
+{
+  "item": [
+    {
+      "id": "c92518b9-9fd5-4e50-a5d3-e75e11a763fd",
+      "name": "Pirate Radio",
+      "description": {
+        "content": "Pirate Radio Broadcasting Database",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e963f9be-fab6-4d48-b49e-94a9757ba199",
+          "name": "Pirate Radio Broadcasting Database",
+          "request": {
+            "name": "Pirate Radio Broadcasting Database",
+            "description": {
+              "content": "Returns entries from the Pirate Radio Broadcasting Database, identifying entities subject to enforcement actions for unlicensed radio broadcasting under section 511(g) of the PIRATE Act.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "resource",
+                "wgq8-eb5c.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "$limit",
+                  "value": "1000"
+                },
+                {
+                  "disabled": false,
+                  "key": "$offset",
+                  "value": "0"
+                },
+                {
+                  "disabled": false,
+                  "key": "$where",
+                  "value": "<string>",
+                  "description": "SoQL filter expression."
+                },
+                {
+                  "disabled": false,
+                  "key": "$select",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "$order",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "$q",
+                  "value": "<string>",
+                  "description": "Full-text search."
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "93123ded-a412-4446-b096-30f38f266d12",
+              "name": "Pirate radio records",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "resource",
+                    "wgq8-eb5c.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$limit",
+                      "value": "1000"
+                    },
+                    {
+                      "key": "$offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "$where",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$order",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://publicapi.fcc.gov/ecfs",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "api_key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "b1a97c5f-64b8-4c3a-93b4-09e0e7685e83",
+    "name": "FCC ECFS Datasets Pirate Radio API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The FCC Electronic Comment Filing System (ECFS) public API provides programmatic access to filings, proceedings, and submissions made to the Federal Communications Commission.\n\nContact Support:\n Name: FCC Developer",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "FCC ECFS Datasets Pirate Radio API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "api_key",
+      "value": "{{api_key}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Pirate Radio",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Pirate Radio Broadcasting Database",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://publicapi.fcc.gov/ecfs/resource/wgq8-eb5c.json",
+            "params": [
+              {
+                "name": "$limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "$offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "$where",
+                "value": "",
+                "type": "query",
+                "description": "SoQL filter expression."
+              },
+              {
+                "name": "$select",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "$order",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "$q",
+                "value": "",
+                "type": "query",
+                "description": "Full-text search."
+              }
+            ]
+          },
+          "docs": "Returns entries from the Pirate Radio Broadcasting Database, identifying entities subject to enforcement actions for unlicensed radio broadcasting under section 511(g) of the PIRATE Act."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

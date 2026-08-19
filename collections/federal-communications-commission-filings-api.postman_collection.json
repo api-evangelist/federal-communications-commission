@@ -1,0 +1,173 @@
+{
+  "item": [
+    {
+      "id": "31292cd3-22be-42b3-a72a-012d3d9eff07",
+      "name": "Filings",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "0efd2f48-f814-467b-9b38-aa330b574a32",
+          "name": "Search ECFS filings",
+          "request": {
+            "name": "Search ECFS filings",
+            "description": {
+              "content": "Returns a list of filings submitted to the FCC ECFS system.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "filings"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api_key",
+                  "value": "<string>",
+                  "description": "(Required) api.data.gov API key."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "25"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0"
+                },
+                {
+                  "disabled": false,
+                  "key": "proceedings.name",
+                  "value": "<string>",
+                  "description": "Proceeding (docket) number filter."
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "Field name and direction (e.g. date_disseminated,DESC)."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "46122068-08bf-4586-9e90-2f5cbc16aafc",
+              "name": "Filings response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "filings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "25"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "proceedings.name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"filing\": [\n    {\n      \"id_submission\": \"string\",\n      \"date_received\": \"2013-08-25T00:57:51.740Z\",\n      \"date_submission\": \"2020-01-04T21:14:37.273Z\",\n      \"date_disseminated\": \"1951-07-14T09:02:19.888Z\",\n      \"date_last_modified\": \"1978-01-29T04:52:48.228Z\",\n      \"delegated_authority_number\": \"string\",\n      \"bureaus\": [\n        {\n          \"code\": \"string\",\n          \"name\": \"string\"\n        },\n        {\n          \"code\": \"string\",\n          \"name\": \"string\"\n        }\n      ],\n      \"proceedings\": [\n        {\n          \"name\": \"string\",\n          \"description\": \"string\",\n          \"bureau_code\": \"string\",\n          \"bureau_name\": \"string\"\n        },\n        {\n          \"name\": \"string\",\n          \"description\": \"string\",\n          \"bureau_code\": \"string\",\n          \"bureau_name\": \"string\"\n        }\n      ],\n      \"documents\": [\n        {\n          \"filename\": \"string\",\n          \"src\": \"string\",\n          \"description\": \"string\"\n        },\n        {\n          \"filename\": \"string\",\n          \"src\": \"string\",\n          \"description\": \"string\"\n        }\n      ],\n      \"filers\": [\n        {\n          \"name\": \"string\"\n        },\n        {\n          \"name\": \"string\"\n        }\n      ],\n      \"submissiontype\": {\n        \"id\": 2585,\n        \"type\": \"string\",\n        \"short\": \"string\",\n        \"description\": \"string\"\n      },\n      \"filingstatus\": {\n        \"id\": 6572,\n        \"description\": \"string\"\n      }\n    },\n    {\n      \"id_submission\": \"string\",\n      \"date_received\": \"1968-01-04T00:36:44.477Z\",\n      \"date_submission\": \"1953-04-01T04:43:28.516Z\",\n      \"date_disseminated\": \"2006-03-03T23:57:31.978Z\",\n      \"date_last_modified\": \"1953-06-17T02:39:05.844Z\",\n      \"delegated_authority_number\": \"string\",\n      \"bureaus\": [\n        {\n          \"code\": \"string\",\n          \"name\": \"string\"\n        },\n        {\n          \"code\": \"string\",\n          \"name\": \"string\"\n        }\n      ],\n      \"proceedings\": [\n        {\n          \"name\": \"string\",\n          \"description\": \"string\",\n          \"bureau_code\": \"string\",\n          \"bureau_name\": \"string\"\n        },\n        {\n          \"name\": \"string\",\n          \"description\": \"string\",\n          \"bureau_code\": \"string\",\n          \"bureau_name\": \"string\"\n        }\n      ],\n      \"documents\": [\n        {\n          \"filename\": \"string\",\n          \"src\": \"string\",\n          \"description\": \"string\"\n        },\n        {\n          \"filename\": \"string\",\n          \"src\": \"string\",\n          \"description\": \"string\"\n        }\n      ],\n      \"filers\": [\n        {\n          \"name\": \"string\"\n        },\n        {\n          \"name\": \"string\"\n        }\n      ],\n      \"submissiontype\": {\n        \"id\": 5959,\n        \"type\": \"string\",\n        \"short\": \"string\",\n        \"description\": \"string\"\n      },\n      \"filingstatus\": {\n        \"id\": 51,\n        \"description\": \"string\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://publicapi.fcc.gov/ecfs",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "api_key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "995eb2cd-87a3-4e75-a277-dec0c2fab604",
+    "name": "FCC ECFS Datasets Filings API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The FCC Electronic Comment Filing System (ECFS) public API provides programmatic access to filings, proceedings, and submissions made to the Federal Communications Commission.\n\nContact Support:\n Name: FCC Developer",
+      "type": "text/plain"
+    }
+  }
+}

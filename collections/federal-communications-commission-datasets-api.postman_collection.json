@@ -1,0 +1,145 @@
+{
+  "item": [
+    {
+      "id": "b972d87b-a7e0-4491-b642-b7c64771f4bc",
+      "name": "Datasets",
+      "description": {
+        "content": "Dataset catalog and resources",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a674b301-5472-4d1d-a943-d2ad0fce3e9d",
+          "name": "List datasets in the FCC open data catalog",
+          "request": {
+            "name": "List datasets in the FCC open data catalog",
+            "description": {
+              "content": "Returns a list of datasets and views available on the FCC Open Data portal.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "views.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "200"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "30034e05-80ff-44ec-946a-2d68443df4a9",
+              "name": "List of datasets",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "views.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "200"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"description\": \"string\",\n    \"category\": \"string\",\n    \"createdAt\": 7451,\n    \"rowsUpdatedAt\": 807\n  },\n  {\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"description\": \"string\",\n    \"category\": \"string\",\n    \"createdAt\": 4651,\n    \"rowsUpdatedAt\": 8900\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://publicapi.fcc.gov/ecfs",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "api_key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "357fea32-b6e8-413e-9cd8-3be87855344a",
+    "name": "FCC ECFS Datasets API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The FCC Electronic Comment Filing System (ECFS) public API provides programmatic access to filings, proceedings, and submissions made to the Federal Communications Commission.\n\nContact Support:\n Name: FCC Developer",
+      "type": "text/plain"
+    }
+  }
+}
