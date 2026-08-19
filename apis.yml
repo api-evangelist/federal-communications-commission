@@ -28,7 +28,7 @@ tags:
   - Federal Government
   - Open Data
 url: https://raw.githubusercontent.com/api-evangelist/federal-communications-commission/refs/heads/main/apis.yml
-specificationVersion: '0.19'
+specificationVersion: '0.23'
 apis:
 - aid: federal-communications-commission:federal-communications-commission-datasets-api
   name: Federal Communications Commission Datasets API
