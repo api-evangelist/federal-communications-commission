@@ -25,6 +25,10 @@ modified: '2026-05-19'
 position: Consumer
 tags:
   - Communications
+  - Federal-Government
+  - Open Data
+tags_raw:
+  - Communications
   - Federal Government
   - Open Data
 url: https://raw.githubusercontent.com/api-evangelist/federal-communications-commission/refs/heads/main/apis.yml
