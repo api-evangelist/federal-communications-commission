@@ -1,16 +1,14 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: FCC ECFS Datasets API
-  description: The FCC Electronic Comment Filing System (ECFS) public API provides programmatic access to filings, proceedings, and submissions made to the Federal Communications Commission.
+  title: FCC Open Data Datasets API
+  description: The FCC Open Data Portal exposes datasets via the Socrata Open Data API (SODA), including the Pirate Radio Broadcasting Database, Fixed Broadband Deployment data, and consumer complaint summaries.
   version: '1.0'
   contact:
-    name: FCC Developer
-    url: https://www.fcc.gov/reports-research/developers
+    name: FCC Open Data
+    url: https://opendata.fcc.gov/
 servers:
-- url: https://publicapi.fcc.gov/ecfs
-  description: ECFS public API
-security:
-- apiKey: []
+- url: https://opendata.fcc.gov
+  description: FCC Open Data portal
 tags:
 - name: Datasets
   description: Dataset catalog and resources
@@ -59,9 +57,3 @@ components:
           type: integer
         rowsUpdatedAt:
           type: integer
-  securitySchemes:
-    apiKey:
-      type: apiKey
-      in: query
-      name: api_key
-      description: api.data.gov API key passed as a query parameter.
