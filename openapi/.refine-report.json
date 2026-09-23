@@ -18,7 +18,8 @@
     "ecfs.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
     "ecfs.yml: declared missing tag: Filings",
     "ecfs.yml: declared missing tag: Proceedings",
-    "opendata.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0"
+    "opendata.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
   ],
   "skipped": [
     "federal-communications-commission-datasets-api-openapi.yml: previously refined output, superseded by openapi/_original/",

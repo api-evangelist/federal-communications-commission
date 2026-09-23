@@ -1,6 +1,6 @@
-name: FCC Open Data (Socrata) Rules
+x-name: FCC Open Data (Socrata) Rules
 description: Operational rules for FCC Open Data SODA endpoints.
-api: opendata
+x-api: opendata
 rules:
   - id: soql-syntax
     description: Use SoQL ($select, $where, $order, $limit, $offset, $q) for filtering and projection.
